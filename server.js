@@ -2,27 +2,23 @@
 
 const app = require('express')();
 const mongoose = require('mongoose');
-const auth = require('./routes/auth_routes');
-const bodyParser = require('body-parser').json();
-const jwAuth = require(__dirname + '/lib/jwt_auth');
-const morgan = require('morgan');
+const auth = require(__dirname + '/routes/auth_routes');
+// const bodyParser = require('body-parser').json();
+// const jwAuth = require(__dirname + '/lib/jwt_auth');
 
 const dbPort = process.env.MONGODB_URI || 'mongodb://localhost/dev_db';
-console.log('dbPort', dbPort);
 
 mongoose.connect(dbPort);
 
-app.use(morgan('dev'));
-
 app.use('/', auth);
 
-app.get('/test', (req, res) => {
-  res.send('don\'t need a token');
-});
+// app.get('/test', (req, res) => {
+//   res.send('don\'t need a token');
+// });
 
-app.post('/test', bodyParser, jwAuth, (req, res) => {
-  res.send({ message: 'need a token' });
-});
+// app.post('/test', bodyParser, jwAuth, (req, res) => {
+//   res.send({ message: 'need a token' });
+// });
 
 app.use((err, req, res, next) => {
   res.status(500).json({ message: err.message });
