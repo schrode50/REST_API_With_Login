@@ -15,7 +15,7 @@ router.post('/signup', bodyParser, (req, res, next) => {
   req.body.password = null;
   User.findOne({ username: req.body.username }, (err, user) => {
     if(err || user) return next(new Error('CANNOT CREATE USER'));
-    newUser.save((err, user) => {
+    newUser.save((err) => {
       if(err) return next(new Error('Cannot Create User'));
       res.json({ token: 'you made it in' });
     });

@@ -28,8 +28,8 @@ describe('authorization tests', () => {
     .end((err, res) => {
       expect(err).to.eql(null);
       expect(res).to.have.status(200);
-      // expect(res.body).to.eql({ token: 'you got it' });
-      // expect(res.body.username).to.eql({'larry'});
+      expect(res.body).to.eql({ token: 'you made it in' });
+      // // expect(res.body.username).to.eql('larry');
       // expect(res.body.password).to.eql('flint');
       done();
     });
@@ -42,8 +42,7 @@ describe('authorization tests', () => {
     .end((err, res) => {
       expect(err).to.eql(null);
       expect(res).to.have.status(200);
-      // expect(Array.isArray(res.body)).to.eql(true);
-      // expect(res.body.length).to.eql(0);
+      expect(res.body).to.eql({ token: 'you made it in' });
       done();
     });
   });
