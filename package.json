@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/schrode50/REST_API_With_Login#readme",
   "dependencies": {
-    "bcrypt": "^0.8.6",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.15.1",
     "express": "^4.13.4",
     "mongoose": "^5.7.9"
